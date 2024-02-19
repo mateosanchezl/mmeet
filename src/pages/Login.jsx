@@ -1,7 +1,8 @@
 import React from "react";
+import HeroForm from "../components/HeroForm";
 
 function Login() {
-  return <div>Login</div>;
+  return <HeroForm />;
 }
 
 export default Login;
