@@ -10,24 +10,30 @@ function Navbar() {
   };
 
   return (
-    <div className="navbar bg-white">
-      <div className="flex-1">
-        <img src={logo} width="90" height="90" alt="MMeet Logo" />
+    <div className="navbar bg-gray-800">
+      <div className="flex-1 pl-2">
+        <button
+          onClick={() => {
+            handleClick("/home");
+          }}
+        >
+          <img src={logo} width="90" height="90" alt="MMeet Logo" />
+        </button>
       </div>
       <div className="flex-none gap-2">
         <div className="flex-none">
-          <ul className="menu menu-horizontal px-1">
-            <li>
+          <ul className="menu menu-horizontal px-1  text-gray-200">
+            <li className="btn btn-ghost text-sm font-semibold text-gray-300 rounded-lg hover:bg-gray-700">
               <a
                 onClick={() => {
                   handleClick("/events");
                 }}
               >
-                EVENTS
+                Events
               </a>
             </li>
-            <li>
-              <a>COMMUNITY</a>
+            <li className="btn btn-ghost text-sm font-semibold  text-gray-300 rounded-lg hover:bg-gray-700">
+              <a>Community</a>
             </li>
           </ul>
         </div>
