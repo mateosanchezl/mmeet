@@ -23,7 +23,7 @@ function Navbar() {
       <div className="flex-none gap-2">
         <div className="flex-none">
           <ul className="menu menu-horizontal px-1  text-gray-200">
-            <li className="btn btn-ghost text-sm font-semibold text-gray-300 rounded-lg hover:bg-gray-700">
+            <li className=" text-sm font-semibold text-gray-300 rounded-lg hover:bg-gray-700">
               <a
                 onClick={() => {
                   handleClick("/events");
@@ -32,7 +32,7 @@ function Navbar() {
                 Events
               </a>
             </li>
-            <li className="btn btn-ghost text-sm font-semibold  text-gray-300 rounded-lg hover:bg-gray-700">
+            <li className=" text-sm font-semibold  text-gray-300 rounded-lg hover:bg-gray-700">
               <a>Community</a>
             </li>
           </ul>
