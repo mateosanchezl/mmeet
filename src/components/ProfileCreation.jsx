@@ -7,6 +7,7 @@ function ProfileCreation() {
     password: "",
     profilePicture: null,
     interests: [],
+    new_interest: "",
   });
 
   // Simulate a list of hobbies/interests
@@ -21,14 +22,6 @@ function ProfileCreation() {
     "Sports",
   ];
 
-  const toggleInterest = (interest) => {
-    setProfileData((prevData) => ({
-      ...prevData,
-      interests: prevData.interests.includes(interest)
-        ? prevData.interests.filter((i) => i !== interest)
-        : [...prevData.interests, interest],
-    }));
-  };
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -36,6 +29,7 @@ function ProfileCreation() {
       ...prevData,
       [name]: value,
     }));
+    console.log(profileData)
   };
 
   // For demonstration purposes only, no actual upload logic
@@ -57,6 +51,44 @@ function ProfileCreation() {
     e.preventDefault();
     // Submit logic goes here
     console.log(profileData);
+  };
+
+  const handleAddInterest = (interest) => {
+    setProfileData((prevData) => ({
+      ...prevData,
+      interests: [...prevData.interests, interest],
+      new_interest: "",
+    }));
+  };
+
+  const handleInterestSearch = (e) => {
+    const { value } = e.target;
+    setProfileData((prevData) => ({
+      ...prevData,
+      new_interest: value,
+    }));
+  };
+
+  const handleInterestSelection = (interest) => {
+    if (!profileData.interests.includes(interest)) {
+      handleAddInterest(interest);
+    } else {
+      setProfileData((prevData) => ({
+        ...prevData,
+        new_interest: "",
+      }));
+    }
+  };
+
+  const filteredInterests = allInterests.filter((interest) =>
+    interest.toLowerCase().includes(profileData.new_interest.toLowerCase())
+  );
+
+  const handleRemoveInterest = (interest) => {
+    setProfileData((prevData) => ({
+      ...prevData,
+      interests: prevData.interests.filter((item) => item !== interest),
+    }));
   };
 
   return (
@@ -138,26 +170,67 @@ function ProfileCreation() {
               )}
             </div>
           </div>
+          {profileData.interests.length > 0 && (
+  <div className="flex flex-wrap mt-2">
+    {profileData.interests.map((interest) => (
+      <div key={interest} className="flex items-center bg-blue-100 text-blue-800 rounded-full px-3 py-1 m-1">
+        <span>{interest}</span>
+        <button
+          type="button"
+          className="ml-2"
+          onClick={() => handleRemoveInterest(interest)}
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+            className="w-4 h-4"
+          >
+            <path
+              fillRule="evenodd"
+              d="M12.293 7.293a1 1 0 011.414 1.414L11.414 11l2.293 2.293a1 1 0 01-1.414 1.414L10 12.414l-2.293 2.293a1 1 0 01-1.414-1.414L8.586 11 6.293 8.707a1 1 0 111.414-1.414L10 9.586l2.293-2.293a1 1 0 011.414 0z"
+              clipRule="evenodd"
+            />
+          </svg>
+        </button>
+      </div>
+    ))}
+  </div>
+)}
           <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Interests
+            <label
+              htmlFor="new_interest"
+              className="block text-sm font-medium text-gray-700"
+            >
+              New Interest
             </label>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {allInterests.map((interest) => (
-                <button
-                  key={interest}
-                  type="button"
-                  onClick={() => toggleInterest(interest)}
-                  className={`px-3 py-1 border ${
-                    profileData.interests.includes(interest)
-                      ? "bg-blue-500 text-white"
-                      : "bg-gray-200 text-gray-700"
-                  } rounded-full focus:outline-none`}
+            <input
+              type="text"
+              name="new_interest"
+              id="new_interest"
+              value={profileData.new_interest}
+              onChange={handleInterestSearch}
+              className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+            />
+            {profileData.new_interest && (
+              <ul className="absolute z-10 w-full py-1 bg-white border border-gray-300 rounded-md shadow-lg">
+                {filteredInterests.map((interest) => (
+                  <li
+                    key={interest}
+                    className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+                    onClick={() => handleInterestSelection(interest)}
+                  >
+                    {interest}
+                  </li>
+                ))}
+                <li
+                  className="px-4 py-2 cursor-pointer hover:bg-gray-100 text-blue-500"
+                  onClick={() => handleAddInterest(profileData.new_interest)}
                 >
-                  {interest}
-                </button>
-              ))}
-            </div>
+                  Add "{profileData.new_interest}"
+                </li>
+              </ul>
+            )}
           </div>
           <div className="flex justify-end mt-4">
             <button
