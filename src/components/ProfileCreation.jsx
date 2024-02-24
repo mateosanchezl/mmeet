@@ -7,6 +7,7 @@ function ProfileCreation() {
     password: "",
     profilePicture: null,
     interests: [],
+    new_interest: "",
   });
 
   // Simulate a list of hobbies/interests
@@ -58,6 +59,15 @@ function ProfileCreation() {
     // Submit logic goes here
     console.log(profileData);
   };
+
+  const handleInterestSearch = (e) => {
+    handleChange(e);
+  }
+
+  const filteredInterests = allInterests.filter((interest) =>
+    interest.toLowerCase().includes(profileData.new_interest.toLowerCase())
+  );
+
 
   return (
     <div className="flex flex-col justify-center items-center h-screen bg-gray-300 p-4 pb-36">
@@ -137,26 +147,62 @@ function ProfileCreation() {
                 />
               )}
             </div>
-          </div>
-          <div>
-            <label className="block text-sm font-medium text-gray-700">
-              Interests
-            </label>
-            <div className="mt-2 flex flex-wrap gap-2">
-              {allInterests.map((interest) => (
-                <button
-                  key={interest}
-                  type="button"
-                  onClick={() => toggleInterest(interest)}
-                  className={`px-3 py-1 border ${
-                    profileData.interests.includes(interest)
-                      ? "bg-blue-500 text-white"
-                      : "bg-gray-200 text-gray-700"
-                  } rounded-full focus:outline-none`}
+            <div className="col-span-2">
+              <label className="block text-sm font-medium text-gray-700">
+                Interests
+              </label>
+              <div className="mt-2 flex flex-wrap gap-2">
+                {allInterests.map((interest) => (
+                  <button
+                    key={interest}
+                    type="button"
+                    onClick={() => toggleInterest(interest)}
+                    className={`px-3 py-1 border ${
+                      profileData.interests.includes(interest)
+                        ? "bg-blue-500 text-white"
+                        : "bg-gray-200 text-gray-700"
+                    } rounded-full focus:outline-none`}
+                  >
+                    {interest}
+                  </button>
+                ))}
+              </div>
+              <div>
+                <label
+                  htmlFor="new_interest"
+                  className="block text-sm font-medium text-gray-700"
                 >
-                  {interest}
-                </button>
-              ))}
+                  New Interest
+                </label>
+                <input
+                  type="text"
+                  name="new_interest"
+                  id="new_interest"
+                  value={profileData.new_interest}
+                  onChange={handleInterestSearch}
+                  required
+                  className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+                />
+                {profileData.new_interest && (
+              <ul className="absolute z-10 w-full py-1 bg-white border border-gray-300 rounded-md shadow-lg">
+                {filteredInterests.map((interest) => (
+                  <li
+                    key={interest}
+                    className="px-4 py-2 cursor-pointer hover:bg-gray-100"
+                    onClick={() => {
+                      setProfileData((prevData) => ({
+                        ...prevData,
+                        interests: [...prevData.interests, interest],
+                        new_interest: "",
+                      }));
+                    }}
+                  >
+                    {interest}
+                  </li>
+                ))}
+              </ul>
+            )}
+              </div>
             </div>
           </div>
           <div className="flex justify-end mt-4">
@@ -172,5 +218,4 @@ function ProfileCreation() {
     </div>
   );
 }
-
 export default ProfileCreation;
