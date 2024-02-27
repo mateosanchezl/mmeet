@@ -33,7 +33,13 @@ function Navbar() {
               </a>
             </li>
             <li className=" text-sm font-semibold  text-gray-300 rounded-lg hover:bg-gray-700">
-              <a>Community</a>
+              <a
+                onClick={() => {
+                  handleClick("/community");
+                }}
+              >
+                Community
+              </a>
             </li>
           </ul>
         </div>

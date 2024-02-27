@@ -22,14 +22,13 @@ function ProfileCreation() {
     "Sports",
   ];
 
-
   const handleChange = (e) => {
     const { name, value } = e.target;
     setProfileData((prevData) => ({
       ...prevData,
       [name]: value,
     }));
-    console.log(profileData)
+    console.log(profileData);
   };
 
   // For demonstration purposes only, no actual upload logic
@@ -92,9 +91,12 @@ function ProfileCreation() {
   };
 
   return (
-    <div className="flex flex-col justify-center items-center h-screen bg-gray-300 p-4 pb-36">
+    <div className="flex flex-col justify-center items-center h-screen bg-gray-700 p-4 pb-36">
       <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-4xl">
         <form onSubmit={handleSubmit} className="space-y-6">
+          <h1 className="text-2xl font-bold text-center text-gray-800 mb-4">
+            Customise Your Profile
+          </h1>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div>
               <label
@@ -171,32 +173,35 @@ function ProfileCreation() {
             </div>
           </div>
           {profileData.interests.length > 0 && (
-  <div className="flex flex-wrap mt-2">
-    {profileData.interests.map((interest) => (
-      <div key={interest} className="flex items-center bg-blue-100 text-blue-800 rounded-full px-3 py-1 m-1">
-        <span>{interest}</span>
-        <button
-          type="button"
-          className="ml-2"
-          onClick={() => handleRemoveInterest(interest)}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-            fill="currentColor"
-            className="w-4 h-4"
-          >
-            <path
-              fillRule="evenodd"
-              d="M12.293 7.293a1 1 0 011.414 1.414L11.414 11l2.293 2.293a1 1 0 01-1.414 1.414L10 12.414l-2.293 2.293a1 1 0 01-1.414-1.414L8.586 11 6.293 8.707a1 1 0 111.414-1.414L10 9.586l2.293-2.293a1 1 0 011.414 0z"
-              clipRule="evenodd"
-            />
-          </svg>
-        </button>
-      </div>
-    ))}
-  </div>
-)}
+            <div className="flex flex-wrap mt-2">
+              {profileData.interests.map((interest) => (
+                <div
+                  key={interest}
+                  className="flex items-center bg-blue-100 text-blue-800 rounded-full px-3 py-1 m-1"
+                >
+                  <span>{interest}</span>
+                  <button
+                    type="button"
+                    className="ml-2"
+                    onClick={() => handleRemoveInterest(interest)}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                      className="w-4 h-4"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M12.293 7.293a1 1 0 011.414 1.414L11.414 11l2.293 2.293a1 1 0 01-1.414 1.414L10 12.414l-2.293 2.293a1 1 0 01-1.414-1.414L8.586 11 6.293 8.707a1 1 0 111.414-1.414L10 9.586l2.293-2.293a1 1 0 011.414 0z"
+                        clipRule="evenodd"
+                      />
+                    </svg>
+                  </button>
+                </div>
+              ))}
+            </div>
+          )}
           <div>
             <label
               htmlFor="new_interest"
