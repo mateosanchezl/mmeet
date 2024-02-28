@@ -41,6 +41,15 @@ function Navbar() {
                 Community
               </a>
             </li>
+            <li className=" text-sm font-semibold text-gray-300 rounded-lg hover:bg-gray-700">
+              <a
+                onClick={() => {
+                  handleClick("/message");
+                }}
+              >
+                Messages
+              </a>
+            </li>
           </ul>
         </div>
         <div className="dropdown dropdown-end">
