@@ -2,6 +2,7 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Events from "./pages/Events";
+import Community from "./pages/Community";
 import Message from "./pages/Message";
 
 import "./index.css";
@@ -19,6 +20,8 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/events" element={<Events />} />
           <Route path="/message" element={<Message />} />
+          <Route path="/community" element={<Community />} />
+
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>
