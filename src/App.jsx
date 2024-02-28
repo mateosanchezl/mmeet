@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Events from "./pages/Events";
 import Community from "./pages/Community";
+import Message from "./pages/Message";
 
 import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -18,6 +19,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/events" element={<Events />} />
+          <Route path="/message" element={<Message />} />
           <Route path="/community" element={<Community />} />
 
           <Route path="*" element={<ErrorPage />} />
