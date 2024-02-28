@@ -2,6 +2,7 @@ import Login from "./pages/Login";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Events from "./pages/Events";
+import Message from "./pages/Message";
 
 import "./index.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -17,7 +18,7 @@ function App() {
           <Route path="/home" element={<Home />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/events" element={<Events />} />
-
+          <Route path="/message" element={<Message />} />
           <Route path="*" element={<ErrorPage />} />
         </Routes>
       </BrowserRouter>
