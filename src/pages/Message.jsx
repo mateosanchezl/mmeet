@@ -17,10 +17,6 @@ import profilepic1 from "../assets/profilepics/profilepic1.jpg";
 import profilepic2 from "../assets/profilepics/profilepic2.jpg";
 import profilepic3 from "../assets/profilepics/profilepic3.jpg";
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
 const messages = [
   {
     id: 1,
