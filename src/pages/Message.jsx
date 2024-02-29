@@ -2,6 +2,7 @@ import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ChatMessage from "../components/ChatMessage";
+import LeftSidebar from "../components/Messages/LeftSidebar";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChalkboardUser,
@@ -13,6 +14,10 @@ import profilepic1 from "../assets/profilepics/profilepic1.jpg";
 import profilepic2 from "../assets/profilepics/profilepic2.jpg";
 import profilepic3 from "../assets/profilepics/profilepic3.jpg";
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
 const messages = [
   {
     id: 1,
