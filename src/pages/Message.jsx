@@ -1,11 +1,10 @@
 import React from "react";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import ChatMessage from "../components/ChatMessage";
+import ChatMessage from "../components/Messages/ChatMessage";
 import LeftSidebar from "../components/Messages/LeftSidebar";
 import RightSidebar from "../components/Messages/RightSidebar";
 
-import ChatMessage from "../components/Messages/ChatMessage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChalkboardUser,
