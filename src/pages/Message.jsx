@@ -3,6 +3,9 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import ChatMessage from "../components/ChatMessage";
 import LeftSidebar from "../components/Messages/LeftSidebar";
+import RightSidebar from "../components/Messages/RightSidebar";
+
+import ChatMessage from "../components/Messages/ChatMessage";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faChalkboardUser,
@@ -40,6 +43,13 @@ const messages = [
     time: " 04:00",
     user: "Muhammad Zaid Razzaq Saira",
   },
+  {
+    id: 4,
+    text: "This is the main home screen of the app, inside and contains widgets for quick access,",
+    image: profilepic2,
+    time: " 12:45",
+    user: "Markus Grahamo",
+  }
 ];
 
 function Message() {
@@ -49,8 +59,7 @@ function Message() {
       <div className="flex-1 flex min-h-0">
         {/* Left Sidebar */}
         <div className="w-1/6 bg-gray-200">
-          {/* Left sidebar content goes here */}
-          <p>Left Side Bar Content</p>
+          <LeftSidebar />
         </div>
 
         {/* Main Content */}
@@ -86,7 +95,7 @@ function Message() {
         {/* Right Sidebar */}
         <div className="w-1/6 bg-gray-200">
           {/* Right sidebar content goes here */}
-          <p>Right Side Bar Content</p>
+          <RightSidebar />
         </div>
       </div>
       <Footer />
