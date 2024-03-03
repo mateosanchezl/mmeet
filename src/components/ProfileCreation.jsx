@@ -172,6 +172,21 @@ function ProfileCreation() {
               )}
             </div>
           </div>
+            <div>
+              <label
+                htmlFor="bio"
+                className="block text-sm font-medium text-gray-700"
+              >
+                Bio
+              </label>
+              <textarea
+                name="bio"
+                id="bio"
+                value={profileData.bio}
+                onChange={handleChange}
+                className="mt-1 block w-full p-2 border border-gray-300 rounded-md"
+              />
+          </div>
           {profileData.interests.length > 0 && (
             <div className="flex flex-wrap mt-2">
               {profileData.interests.map((interest) => (
