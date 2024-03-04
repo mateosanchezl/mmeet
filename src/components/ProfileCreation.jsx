@@ -6,7 +6,7 @@ function ProfileCreation() {
     email: "",
     password: "",
     profilePicture: null,
-    interests: [],
+    interests: ["Music", "Gaming", "Coding"],
     new_interest: "",
   });
 
