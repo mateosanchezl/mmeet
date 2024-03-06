@@ -1,15 +1,18 @@
 import React from "react";
 import Navbar from "../components/Navbar";
-import SideNav from "../components/Sidenav";
-import FeedItem from "../components/FeedItem";
-import Trending from "../components/Trending";
+import SideNav from "../components/Home/Sidenav";
+import FeedItem from "../components/Home/FeedItem";
+import Trending from "../components/Home/Trending";
 import Footer from "../components/Footer";
+import TrendingImages from "../components/Home/TrendingImages";
 
 const trendingTopics = [
-  "Machine Learning Projects",
-  "Sustainable Architecture",
-  "Digital Marketing Strategies",
-  "Psychology Research Findings",
+  "Tech Innovations in Education",
+  "The Rise of E-Sports",
+  "Virtual Reality in the Classroom",
+  "The Future of Space Exploration",
+  "Artificial Intelligence Ethics",
+  "Mental Health Awareness Week",
 ];
 
 const mockPosts = [
@@ -40,7 +43,7 @@ function Home() {
   return (
     <>
       <Navbar />
-      <div className="flex h-screen">
+      <div className="flex min-h-screen">
         <SideNav />
         <div className="flex-1 p-4 bg-gray-700">
           <Trending trends={trendingTopics} />

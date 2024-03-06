@@ -44,23 +44,23 @@ const messages = [
     image: profilepic2,
     time: " 12:45",
     user: "Markus Grahamo",
-  }
+  },
 ];
 
 function Message() {
   return (
-    <div className="wrapper min-h-screen flex flex-col">
+    <div className="wrapper min-h-screen flex flex-col bg-gray-700">
       <Navbar />
       <div className="flex-1 flex min-h-0">
         {/* Left Sidebar */}
-        <div className="w-1/6 bg-gray-200">
+        <div className="w-1/6 bg-gray-800">
           <LeftSidebar />
         </div>
 
         {/* Main Content */}
         <div className="flex flex-col flex-1">
           <div className="flex justify-center items-center p-4">
-            <button className="text-gray-600 hover:text-gray-900 border border-black bg-gray-800 hover:bg-blue-600 rounded-lg p-2">
+            <button className="text-gray-300 hover:text-gray-300 border border-black bg-gray-800 hover:bg-blue-600 rounded-lg p-2">
               <FontAwesomeIcon
                 icon={faChalkboardUser}
                 className="text-white text-lg"
@@ -73,7 +73,7 @@ function Message() {
               <FontAwesomeIcon icon={faSearch} className="text-white text-lg" />
             </button>
           </div>
-          <div className="p-4">
+          <div className="p-4 ">
             {messages.map((message) => (
               <ChatMessage
                 key={message.id}
@@ -88,7 +88,7 @@ function Message() {
         </div>
 
         {/* Right Sidebar */}
-        <div className="w-1/6 bg-gray-200">
+        <div className="w-1/6 bg-gray-800">
           {/* Right sidebar content goes here */}
           <RightSidebar />
         </div>

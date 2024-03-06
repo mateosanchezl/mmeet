@@ -14,8 +14,10 @@ const LeftSidebar = () => {
 
   return (
     <div className="sidebar p-1">
-      <h2 className="text-2xl font-bold mb-4">Message Requests</h2>
-      <p className="mb-4">
+      <h2 className="text-2xl font-bold mb-4 text-gray-300">
+        Message Requests
+      </h2>
+      <p className="mb-4 text-gray-300">
         This section displays message requests from new profiles.
       </p>
       <div className="space-y-4">

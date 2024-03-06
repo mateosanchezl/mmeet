@@ -26,7 +26,7 @@ const RightSidebar = () => {
   };
 
   return (
-    <div className="right-sidebar p-4 space-y-4 bg-gray-200">
+    <div className="right-sidebar p-4 space-y-4 bg-gray-600">
       {notifications.map((notification) => (
         <div
           key={notification.id}
