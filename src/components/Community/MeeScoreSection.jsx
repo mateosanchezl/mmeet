@@ -1,6 +1,6 @@
 import React from "react";
 import MeeScoreCard from "./MeeScoreCard";
-import logo from "../../assets/logo.png";
+import logo from "../../assets/mee.png";
 
 const meeScoreCommunities = [
   {
@@ -56,10 +56,15 @@ const meeScoreCommunities = [
 function MeeScoreSection() {
   return (
     <div className="w-1/3 space-y-4">
-      <div className="flex items-center space-x-4">
-        <img src={logo} width="90" height="90" alt="MMeet Logo" />{" "}
-        <h2 className="text-4xl font-bold text-gray-200">Score</h2>
+      <div className="flex items-center ">
+        <img src={logo} width="140" height="140" alt="MMeet Logo" />
+        <h2 className="text-6xl font-bold text-gray-200 pr-6">Score</h2>
       </div>
+      <p className="text-yellow-400 text-sm font-semibold">
+        Your <span className="text-yellow-300 font-bold">Mee Score</span> is a
+        way of measuring your compatibility with communities. <br />
+        Here are some communities we think fit you.
+      </p>
       {meeScoreCommunities.map((community) => (
         <MeeScoreCard key={community.name} community={community} />
       ))}
